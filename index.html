@@ -9,14 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-page: #f8fafc;
-            --bg-card: #ffffff;
-            --text-main: #1e293b;
-            --text-muted: #64748b;
-            --brand-orange: #d97706;
-            --btn-mint: #10b981;
-            --btn-mint-hover: #059669;
-            --card-border: #e2e8f0;
+            --bg-page: #191946;        /* Bleu nuit CapCo */
+            --bg-card: #2B2C5A;        /* Bleu chouette CapCo */
+            --text-main: #ffffff;       /* Blanc CapCo */
+            --text-muted: #cbd5e1;     /* Gris clair pour la lisibilité */
+            --brand-orange: #FFA500;   /* Orange accent CapCo */
+            --btn-action: #FFA500;     /* Bouton CTA Orange */
+            --btn-action-hover: #e09200;
+            --card-border: #3b3d7a;
             --danger-red: #ef4444;
         }
 
@@ -34,7 +34,7 @@
         }
 
         header {
-            background: #ffffff;
+            background: #121235;
             border-bottom: 1px solid var(--card-border);
             padding: 0.8rem 2rem;
             position: sticky;
@@ -66,7 +66,7 @@
         .brand-text {
             font-size: 0.95rem;
             font-weight: 700;
-            color: #0f172a;
+            color: #ffffff;
         }
 
         .brand-text span {
@@ -78,7 +78,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            color: #0f172a;
+            color: #ffffff;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
@@ -125,16 +125,15 @@
             padding: 1.5rem 1.8rem;
             margin-top: 1.5rem;
             border: 1px solid var(--card-border);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         .card-box.warning-card {
             border-left: 5px solid var(--danger-red);
-            background: #fffdfd;
         }
 
         .card-box.success-card {
-            border-left: 5px solid var(--btn-mint);
+            border-left: 5px solid var(--brand-orange);
         }
 
         .card-box h3 {
@@ -180,7 +179,7 @@
         }
 
         .timeline-item {
-            background: #fff;
+            background: var(--bg-card);
             padding: 1.2rem;
             border-radius: 8px;
             border: 1px solid var(--card-border);
@@ -195,7 +194,7 @@
 
         /* Testimonials */
         .testimonial-item {
-            background: #ffffff;
+            background: var(--bg-card);
             border: 1px solid var(--card-border);
             border-left: 4px solid var(--brand-orange);
             border-radius: 6px;
@@ -209,7 +208,7 @@
             font-style: normal;
             font-weight: 700;
             font-size: 0.9rem;
-            color: #0f172a;
+            color: var(--brand-orange);
         }
 
         /* Program Modules */
@@ -221,7 +220,7 @@
         }
 
         .module-item {
-            background: #ffffff;
+            background: var(--bg-card);
             border: 1px solid var(--card-border);
             border-radius: 8px;
             padding: 1.25rem 1.5rem;
@@ -230,7 +229,7 @@
         .module-item h4 {
             font-size: 1rem;
             font-weight: 700;
-            color: #0f172a;
+            color: #ffffff;
             margin-bottom: 0.75rem;
         }
 
@@ -243,7 +242,7 @@
 
         .lessons-list li {
             font-size: 0.9rem;
-            color: var(--text-main);
+            color: var(--text-muted);
             display: flex;
             align-items: flex-start;
             gap: 8px;
@@ -257,7 +256,7 @@
 
         /* FAQ */
         .faq-item {
-            background: #fff;
+            background: var(--bg-card);
             border: 1px solid var(--card-border);
             border-radius: 8px;
             padding: 1.2rem;
@@ -266,7 +265,7 @@
 
         .faq-question {
             font-weight: 700;
-            color: #0f172a;
+            color: var(--brand-orange);
             font-size: 0.98rem;
             margin-bottom: 0.5rem;
         }
@@ -278,7 +277,7 @@
 
         /* Formateur Box */
         .trainer-box {
-            background: #fff;
+            background: var(--bg-card);
             border: 1px solid var(--card-border);
             border-radius: 8px;
             padding: 1.5rem;
@@ -296,7 +295,7 @@
             width: 60px;
             height: 60px;
             background: var(--brand-orange);
-            color: white;
+            color: var(--bg-page);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -307,7 +306,7 @@
 
         .trainer-title h3 {
             font-size: 1.1rem;
-            color: #0f172a;
+            color: #ffffff;
         }
 
         .trainer-title p {
@@ -315,22 +314,53 @@
             color: var(--text-muted);
         }
 
-        .exp-item {
-            margin-top: 0.75rem;
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.5rem;
+            margin: 1rem 0;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--card-border);
+        }
+
+        .skills-grid div {
             font-size: 0.88rem;
+            color: var(--text-main);
+        }
+
+        .exp-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .exp-item {
+            font-size: 0.88rem;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 0.6rem;
+            color: var(--text-muted);
+        }
+
+        .exp-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
         .exp-item strong {
-            color: #0f172a;
+            color: #ffffff;
             display: block;
+            font-size: 0.92rem;
         }
 
         /* Sidebar Sticky Card */
         .side-card {
-            background: #ffffff;
+            background: var(--bg-card);
             border-radius: 12px;
             border: 1px solid var(--card-border);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
             padding: 1.25rem;
             position: sticky;
             top: 5rem;
@@ -357,7 +387,7 @@
         .price-amount {
             font-size: 2.2rem;
             font-weight: 800;
-            color: #0f172a;
+            color: #ffffff;
             line-height: 1;
         }
 
@@ -367,11 +397,11 @@
             margin-top: 4px;
         }
 
-        .btn-cta-green {
+        .btn-cta-orange {
             display: block;
             width: 100%;
-            background-color: var(--btn-mint);
-            color: #ffffff;
+            background-color: var(--btn-action);
+            color: var(--bg-page);
             text-align: center;
             padding: 0.9rem;
             border-radius: 8px;
@@ -382,8 +412,8 @@
             margin-bottom: 1.25rem;
         }
 
-        .btn-cta-green:hover {
-            background-color: var(--btn-mint-hover);
+        .btn-cta-orange:hover {
+            background-color: var(--btn-action-hover);
         }
 
         .meta-list {
@@ -449,7 +479,7 @@
                     <li>Vous confondez prospection et spam</li>
                     <li>Vous n'avez pas de visibilité sur vos 3-6 prochains mois</li>
                 </ul>
-                <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem; color: #0f172a;">
+                <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem; color: #ffffff;">
                     👉 Si vous avez coché au moins 3 cases, cette formation va transformer votre approche commerciale.
                 </p>
             </section>
@@ -476,15 +506,15 @@
                 <div class="timeline-grid">
                     <div class="timeline-item">
                         <h4>Après 30 jours</h4>
-                        <p style="font-size: 0.88rem;">• Plan 90 jours défini<br>• 120-180 prospects contactés<br>• Premiers RDV qualifiés<br>• Routine en place</p>
+                        <p style="font-size: 0.88rem; color: var(--text-muted);">• Plan 90 jours défini<br>• 120-180 prospects contactés<br>• Premiers RDV qualifiés<br>• Routine en place</p>
                     </div>
                     <div class="timeline-item">
                         <h4>Après 60 jours</h4>
-                        <p style="font-size: 0.88rem;">• 240-360 prospects contactés<br>• 15-20 RDV obtenus<br>• Premières propositions envoyées<br>• Pilotage hebdomadaire</p>
+                        <p style="font-size: 0.88rem; color: var(--text-muted);">• 240-360 prospects contactés<br>• 15-20 RDV obtenus<br>• Premières propositions envoyées<br>• Pilotage hebdomadaire</p>
                     </div>
                     <div class="timeline-item">
                         <h4>Après 90 jours</h4>
-                        <p style="font-size: 0.88rem;">• 360-540 prospects contactés<br>• <strong>5 à 10 nouveaux clients signés</strong><br>• Pipeline prévisible<br>• Maîtrise commerciale</p>
+                        <p style="font-size: 0.88rem; color: var(--text-muted);">• 360-540 prospects contactés<br>• <strong style="color: #fff;">5 à 10 nouveaux clients signés</strong><br>• Pipeline prévisible<br>• Maîtrise commerciale</p>
                     </div>
                 </div>
             </section>
@@ -495,11 +525,11 @@
                 <p class="desc-text" style="font-size: 0.95rem; margin-bottom: 0.75rem;">
                     Chaque jour sans prospection structurée, c'est des opportunités perdues au profit de vos concurrents, un pipeline qui se vide et du stress inutile.
                 </p>
-                <div style="background: #f1f5f9; padding: 1rem; border-radius: 6px; font-size: 0.95rem;">
+                <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 6px; font-size: 0.95rem; border: 1px solid var(--card-border);">
                     <strong>Dans 90 jours, vous aurez :</strong>
-                    <ul style="margin-left: 1.2rem; margin-top: 0.5rem;">
-                        <li><strong>Option A :</strong> Continué comme avant (et obtenu les mêmes résultats décevants)</li>
-                        <li><strong>Option B :</strong> Appliqué cette méthode (et signé 5 à 10 nouveaux clients)</li>
+                    <ul style="margin-left: 1.2rem; margin-top: 0.5rem; color: var(--text-muted);">
+                        <li><strong style="color: #fff;">Option A :</strong> Continué comme avant (et obtenu les mêmes résultats décevants)</li>
+                        <li><strong style="color: #fff;">Option B :</strong> Appliqué cette méthode (et signé 5 à 10 nouveaux clients)</li>
                     </ul>
                 </div>
             </section>
@@ -632,20 +662,42 @@
                             <p>Experte en développement commercial & management stratégique</p>
                         </div>
                     </div>
-                    <p class="desc-text" style="font-size: 0.92rem;">
+                    <p class="desc-text" style="font-size: 0.92rem; color: var(--text-muted);">
                         Spécialisée en prospection active, fidélisation client et pilotage d’équipes pour assurer une croissance mesurable et durable.
                     </p>
-                    <div class="exp-item">
-                        <strong>Responsable Commerciale & Grands Comptes (11 ans)</strong>
-                        +200 clients grands comptes | +35% CA | Supervision de 4 commerciaux
+
+                    <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--brand-orange); margin-top: 1rem;">Compétences clés</h4>
+                    <div class="skills-grid">
+                        <div>✔️ Stratégie commerciale & développement des ventes</div>
+                        <div>✔️ Management & motivation des équipes</div>
+                        <div>✔️ Négociation & gestion grands comptes BtoB</div>
+                        <div>✔️ Optimisation des performances & suivi des KPIs</div>
+                        <div>✔️ Marketing opérationnel & actions promotionnelles</div>
+                        <div>✔️ Outils : CRM, Pack Office, Intelligence Artificielle (IA)</div>
                     </div>
-                    <div class="exp-item">
-                        <strong>Consultante Commerciale & Marketing (3 ans)</strong>
-                        55 sessions de formation | Stratégie commerciale B2B
-                    </div>
-                    <div class="exp-item">
-                        <strong>Directrice de Réseau Magasins (8 ans)</strong>
-                        Gestion de 18 magasins | 80 employés | CA 10M€
+
+                    <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--brand-orange); margin-top: 1.2rem; margin-bottom: 0.5rem;">Expérience professionnelle</h4>
+                    <div class="exp-list">
+                        <div class="exp-item">
+                            <strong>RESPONSABLE COMMERCIALE & GRANDS COMPTES - (11 ans)</strong>
+                            +200 clients grands comptes | +35% CA | Supervision de 4 commerciaux, prospection et pilotage des ventes.
+                        </div>
+                        <div class="exp-item">
+                            <strong>CONSULTANTE COMMERCIALE & MARKETING - (3 ans)</strong>
+                            55 sessions de formation en vente & marketing | Stratégie commerciale en BtoB | 150K€ de CA en 2013.
+                        </div>
+                        <div class="exp-item">
+                            <strong>DIRECTRICE DE RÉSEAU MAGASINS - (8 ans)</strong>
+                            Gestion de 18 magasins | 80 employés | CA 10M€ | +5% résultat opérationnel.
+                        </div>
+                        <div class="exp-item">
+                            <strong>RESPONSABLE MARKETING NON-ALIMENTAIRE - (2 ans)</strong>
+                            +7% CA | +3% marge | Refonte des gammes, supports promotionnels & merchandising.
+                        </div>
+                        <div class="exp-item">
+                            <strong>CHEF DE PRODUIT MARKETING - (8 ans)</strong>
+                            Négociation et gestion d’un portefeuille de 150 fournisseurs | Optimisation des achats & marges.
+                        </div>
                     </div>
                 </div>
             </section>
@@ -664,7 +716,7 @@
                     <div class="price-sub">Accès illimité à vie</div>
                 </div>
 
-                <a href="https://capco.teachizy.fr/" class="btn-cta-green" target="_blank">Rejoindre la formation</a>
+                <a href="https://capco.teachizy.fr/" class="btn-cta-orange" target="_blank">Rejoindre la formation</a>
 
                 <ul class="meta-list">
                     <li>🎬 22 vidéos professionnelles (8h30)</li>
