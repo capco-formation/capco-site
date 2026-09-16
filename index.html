@@ -9,14 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-page: #191946;        /* Bleu nuit CapCo */
-            --bg-card: #2B2C5A;        /* Bleu chouette CapCo */
-            --text-main: #ffffff;       /* Blanc CapCo */
-            --text-muted: #cbd5e1;     /* Gris clair pour la lisibilité */
-            --brand-orange: #FFA500;   /* Orange accent CapCo */
-            --btn-action: #FFA500;     /* Bouton CTA Orange */
+            --bg-page: #ffffff;          /* Fond blanc épuré */
+            --bg-card: #f8fafc;          /* Fond de carte très léger */
+            --text-main: #191946;        /* Bleu nuit CapCo pour le texte principal */
+            --text-muted: #475569;       /* Gris foncé pour la lisibilité */
+            --brand-blue: #191946;       /* Bleu nuit CapCo */
+            --brand-orange: #FFA500;     /* Orange accent CapCo */
+            --btn-action: #FFA500;       /* Bouton CTA Orange */
             --btn-action-hover: #e09200;
-            --card-border: #3b3d7a;
+            --card-border: #e2e8f0;      /* Border discrète */
             --danger-red: #ef4444;
         }
 
@@ -34,7 +35,7 @@
         }
 
         header {
-            background: #121235;
+            background: #191946;         /* Bleu nuit pour le header */
             border-bottom: 1px solid var(--card-border);
             padding: 0.8rem 2rem;
             position: sticky;
@@ -70,7 +71,7 @@
         }
 
         .brand-text span {
-            color: var(--text-muted);
+            color: #cbd5e1;
             font-weight: 400;
         }
 
@@ -96,7 +97,7 @@
         .title-primary {
             font-size: 2.3rem;
             font-weight: 800;
-            color: var(--brand-orange);
+            color: var(--brand-blue);
             margin-bottom: 1.5rem;
             line-height: 1.2;
         }
@@ -104,7 +105,7 @@
         .section-label {
             font-size: 1.35rem;
             font-weight: 700;
-            color: var(--brand-orange);
+            color: var(--brand-blue);
             margin-top: 2.5rem;
             margin-bottom: 1rem;
             display: flex;
@@ -125,7 +126,7 @@
             padding: 1.5rem 1.8rem;
             margin-top: 1.5rem;
             border: 1px solid var(--card-border);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
 
         .card-box.warning-card {
@@ -139,7 +140,7 @@
         .card-box h3 {
             font-size: 1rem;
             font-weight: 700;
-            color: var(--brand-orange);
+            color: var(--brand-blue);
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 1rem;
@@ -154,6 +155,7 @@
             padding-left: 1.6rem;
             margin-bottom: 0.65rem;
             font-size: 0.95rem;
+            color: var(--text-main);
         }
 
         .custom-list.cross li::before {
@@ -186,7 +188,7 @@
         }
 
         .timeline-item h4 {
-            color: var(--brand-orange);
+            color: var(--brand-blue);
             font-size: 1.05rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
@@ -201,6 +203,7 @@
             padding: 1.2rem 1.5rem;
             margin-bottom: 1rem;
             font-style: italic;
+            color: var(--text-main);
         }
 
         .testimonial-author {
@@ -208,7 +211,7 @@
             font-style: normal;
             font-weight: 700;
             font-size: 0.9rem;
-            color: var(--brand-orange);
+            color: var(--brand-blue);
         }
 
         /* Program Modules */
@@ -229,7 +232,7 @@
         .module-item h4 {
             font-size: 1rem;
             font-weight: 700;
-            color: #ffffff;
+            color: var(--brand-blue);
             margin-bottom: 0.75rem;
         }
 
@@ -265,7 +268,7 @@
 
         .faq-question {
             font-weight: 700;
-            color: var(--brand-orange);
+            color: var(--brand-blue);
             font-size: 0.98rem;
             margin-bottom: 0.5rem;
         }
@@ -294,8 +297,8 @@
         .trainer-avatar {
             width: 60px;
             height: 60px;
-            background: var(--brand-orange);
-            color: var(--bg-page);
+            background: var(--brand-blue);
+            color: #ffffff;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -306,7 +309,7 @@
 
         .trainer-title h3 {
             font-size: 1.1rem;
-            color: #ffffff;
+            color: var(--brand-blue);
         }
 
         .trainer-title p {
@@ -319,7 +322,7 @@
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 0.5rem;
             margin: 1rem 0;
-            background: rgba(255, 255, 255, 0.05);
+            background: #ffffff;
             padding: 1rem;
             border-radius: 6px;
             border: 1px solid var(--card-border);
@@ -350,17 +353,17 @@
         }
 
         .exp-item strong {
-            color: #ffffff;
+            color: var(--brand-blue);
             display: block;
             font-size: 0.92rem;
         }
 
         /* Sidebar Sticky Card */
         .side-card {
-            background: var(--bg-card);
+            background: #ffffff;
             border-radius: 12px;
             border: 1px solid var(--card-border);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
             padding: 1.25rem;
             position: sticky;
             top: 5rem;
@@ -387,7 +390,7 @@
         .price-amount {
             font-size: 2.2rem;
             font-weight: 800;
-            color: #ffffff;
+            color: var(--brand-blue);
             line-height: 1;
         }
 
@@ -401,7 +404,7 @@
             display: block;
             width: 100%;
             background-color: var(--btn-action);
-            color: var(--bg-page);
+            color: #ffffff;
             text-align: center;
             padding: 0.9rem;
             border-radius: 8px;
@@ -479,7 +482,7 @@
                     <li>Vous confondez prospection et spam</li>
                     <li>Vous n'avez pas de visibilité sur vos 3-6 prochains mois</li>
                 </ul>
-                <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem; color: #ffffff;">
+                <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem; color: var(--brand-blue);">
                     👉 Si vous avez coché au moins 3 cases, cette formation va transformer votre approche commerciale.
                 </p>
             </section>
@@ -514,22 +517,22 @@
                     </div>
                     <div class="timeline-item">
                         <h4>Après 90 jours</h4>
-                        <p style="font-size: 0.88rem; color: var(--text-muted);">• 360-540 prospects contactés<br>• <strong style="color: #fff;">5 à 10 nouveaux clients signés</strong><br>• Pipeline prévisible<br>• Maîtrise commerciale</p>
+                        <p style="font-size: 0.88rem; color: var(--text-muted);">• 360-540 prospects contactés<br>• <strong style="color: var(--brand-blue);">5 à 10 nouveaux clients signés</strong><br>• Pipeline prévisible<br>• Maîtrise commerciale</p>
                     </div>
                 </div>
             </section>
 
             <!-- Why Act Now -->
             <section class="card-box">
-                <h3 style="color: var(--brand-orange);">🔥 POURQUOI AGIR MAINTENANT ?</h3>
+                <h3>🔥 POURQUOI AGIR MAINTENANT ?</h3>
                 <p class="desc-text" style="font-size: 0.95rem; margin-bottom: 0.75rem;">
                     Chaque jour sans prospection structurée, c'est des opportunités perdues au profit de vos concurrents, un pipeline qui se vide et du stress inutile.
                 </p>
-                <div style="background: rgba(255, 255, 255, 0.05); padding: 1rem; border-radius: 6px; font-size: 0.95rem; border: 1px solid var(--card-border);">
+                <div style="background: #ffffff; padding: 1rem; border-radius: 6px; font-size: 0.95rem; border: 1px solid var(--card-border);">
                     <strong>Dans 90 jours, vous aurez :</strong>
                     <ul style="margin-left: 1.2rem; margin-top: 0.5rem; color: var(--text-muted);">
-                        <li><strong style="color: #fff;">Option A :</strong> Continué comme avant (et obtenu les mêmes résultats décevants)</li>
-                        <li><strong style="color: #fff;">Option B :</strong> Appliqué cette méthode (et signé 5 à 10 nouveaux clients)</li>
+                        <li><strong style="color: var(--brand-blue);">Option A :</strong> Continué comme avant (et obtenu les mêmes résultats décevants)</li>
+                        <li><strong style="color: var(--brand-blue);">Option B :</strong> Appliqué cette méthode (et signé 5 à 10 nouveaux clients)</li>
                     </ul>
                 </div>
             </section>
@@ -612,7 +615,7 @@
 
             <!-- ROI Section -->
             <section class="card-box" style="margin-top: 2.5rem;">
-                <h3 style="color: var(--brand-orange);">💡 POURQUOI CET INVESTISSEMENT ?</h3>
+                <h3>💡 POURQUOI CET INVESTISSEMENT ?</h3>
                 <p class="desc-text" style="font-size: 0.95rem;">
                     <strong>Un seul nouveau client signé grâce à cette méthode = formation rentabilisée.</strong>
                 </p>
@@ -666,7 +669,7 @@
                         Spécialisée en prospection active, fidélisation client et pilotage d’équipes pour assurer une croissance mesurable et durable.
                     </p>
 
-                    <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--brand-orange); margin-top: 1rem;">Compétences clés</h4>
+                    <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--brand-blue); margin-top: 1rem;">Compétences clés</h4>
                     <div class="skills-grid">
                         <div>✔️ Stratégie commerciale & développement des ventes</div>
                         <div>✔️ Management & motivation des équipes</div>
@@ -676,7 +679,7 @@
                         <div>✔️ Outils : CRM, Pack Office, Intelligence Artificielle (IA)</div>
                     </div>
 
-                    <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--brand-orange); margin-top: 1.2rem; margin-bottom: 0.5rem;">Expérience professionnelle</h4>
+                    <h4 style="font-size: 0.9rem; text-transform: uppercase; color: var(--brand-blue); margin-top: 1.2rem; margin-bottom: 0.5rem;">Expérience professionnelle</h4>
                     <div class="exp-list">
                         <div class="exp-item">
                             <strong>RESPONSABLE COMMERCIALE & GRANDS COMPTES - (11 ans)</strong>
