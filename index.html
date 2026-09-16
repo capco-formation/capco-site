@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CapCo. - L'accélérateur commercial TPE/PME | La Prospection B to B</title>
+    <title>CapCo. - La Prospection B to B | L'accélérateur commercial TPE/PME</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-page: #f8fafc;
+            --bg-card: #ffffff;
             --text-main: #1e293b;
             --text-muted: #64748b;
             --brand-orange: #d97706;
             --btn-mint: #10b981;
             --btn-mint-hover: #059669;
             --card-border: #e2e8f0;
+            --danger-red: #ef4444;
         }
 
         * {
@@ -28,13 +30,16 @@
         body {
             background-color: var(--bg-page);
             color: var(--text-main);
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         header {
             background: #ffffff;
             border-bottom: 1px solid var(--card-border);
             padding: 0.8rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .header-content {
@@ -81,7 +86,7 @@
 
         .wrapper {
             max-width: 1240px;
-            margin: 2.5rem auto;
+            margin: 2rem auto;
             padding: 0 1.5rem;
             display: grid;
             grid-template-columns: 1fr 340px;
@@ -89,36 +94,51 @@
         }
 
         .title-primary {
-            font-size: 2.25rem;
+            font-size: 2.3rem;
             font-weight: 800;
             color: var(--brand-orange);
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
         }
 
         .section-label {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: var(--brand-orange);
+            margin-top: 2.5rem;
             margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .desc-text {
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: var(--text-main);
             margin-bottom: 1rem;
         }
 
-        .target-card {
-            background: #ffffff;
+        /* CARD warning / target */
+        .card-box {
+            background: var(--bg-card);
             border-radius: 8px;
             padding: 1.5rem 1.8rem;
-            margin-top: 2rem;
-            border-left: 4px solid var(--btn-mint);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-top: 1.5rem;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
         }
 
-        .target-card h3 {
-            font-size: 0.9rem;
+        .card-box.warning-card {
+            border-left: 5px solid var(--danger-red);
+            background: #fffdfd;
+        }
+
+        .card-box.success-card {
+            border-left: 5px solid var(--btn-mint);
+        }
+
+        .card-box h3 {
+            font-size: 1rem;
             font-weight: 700;
             color: var(--brand-orange);
             text-transform: uppercase;
@@ -126,28 +146,75 @@
             margin-bottom: 1rem;
         }
 
-        .target-list {
+        .custom-list {
             list-style: none;
         }
 
-        .target-list li {
+        .custom-list li {
             position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
+            padding-left: 1.6rem;
+            margin-bottom: 0.65rem;
             font-size: 0.95rem;
-            color: var(--text-main);
         }
 
-        .target-list li::before {
-            content: "✓";
+        .custom-list.cross li::before {
+            content: "❌";
             position: absolute;
             left: 0;
-            color: var(--btn-mint);
-            font-weight: bold;
+            font-size: 0.85rem;
         }
 
+        .custom-list.check li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            font-size: 0.85rem;
+        }
+
+        /* Timeline / Résultats */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .timeline-item {
+            background: #fff;
+            padding: 1.2rem;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+        }
+
+        .timeline-item h4 {
+            color: var(--brand-orange);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Testimonials */
+        .testimonial-item {
+            background: #ffffff;
+            border: 1px solid var(--card-border);
+            border-left: 4px solid var(--brand-orange);
+            border-radius: 6px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            margin-top: 0.75rem;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #0f172a;
+        }
+
+        /* Program Modules */
         .modules-list {
-            margin-top: 1.5rem;
+            margin-top: 1rem;
             display: flex;
             flex-direction: column;
             gap: 1rem;
@@ -188,18 +255,85 @@
             font-weight: bold;
         }
 
-        .bonus-item {
-            border-left: 4px solid var(--brand-orange);
+        /* FAQ */
+        .faq-item {
+            background: #fff;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 1.2rem;
+            margin-bottom: 0.8rem;
         }
 
+        .faq-question {
+            font-weight: 700;
+            color: #0f172a;
+            font-size: 0.98rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+        }
+
+        /* Formateur Box */
+        .trainer-box {
+            background: #fff;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .trainer-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .trainer-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--brand-orange);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.5rem;
+        }
+
+        .trainer-title h3 {
+            font-size: 1.1rem;
+            color: #0f172a;
+        }
+
+        .trainer-title p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .exp-item {
+            margin-top: 0.75rem;
+            font-size: 0.88rem;
+        }
+
+        .exp-item strong {
+            color: #0f172a;
+            display: block;
+        }
+
+        /* Sidebar Sticky Card */
         .side-card {
             background: #ffffff;
             border-radius: 12px;
             border: 1px solid var(--card-border);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
             padding: 1.25rem;
             position: sticky;
-            top: 2rem;
+            top: 5rem;
         }
 
         .card-img-container {
@@ -215,16 +349,34 @@
             display: block;
         }
 
+        .price-box {
+            text-align: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .price-amount {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1;
+        }
+
+        .price-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
         .btn-cta-green {
             display: block;
             width: 100%;
             background-color: var(--btn-mint);
             color: #ffffff;
             text-align: center;
-            padding: 0.75rem;
+            padding: 0.9rem;
             border-radius: 8px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.05rem;
             text-decoration: none;
             transition: background 0.2s;
             margin-bottom: 1.25rem;
@@ -278,29 +430,101 @@
             <h1 class="title-primary">La Prospection B to B</h1>
 
             <section>
-                <h2 class="section-label">Description</h2>
                 <p class="desc-text">
-                    <strong>Structurez et pilotez votre prospection pour générer un flux régulier de nouveaux clients. Formation complète en 5 modules + cas pratiques : objectifs SMART, ciblage client idéal (ICP), approche multicanal et routine quotidienne.</strong>
+                    <strong>Structurez et pilotez votre prospection pour générer un flux régulier de nouveaux clients. Formation en 5 modules : objectifs SMART, ciblage client idéal (ICP), approche multicanal et mise en action sur 90 jours.</strong>
                 </p>
                 <p class="desc-text">
                     Cette formation vous donne la méthode complète, étape par étape, pour prospecter efficacement sans perdre de temps, sans stress, et avec des résultats mesurables dès les premières semaines.
                 </p>
             </section>
 
-            <section class="target-card">
-                <h3>CETTE FORMATION EST FAITE POUR VOUS SI :</h3>
-                <ul class="target-list">
-                    <li>Vous êtes dirigeant de TPE/PME, manager ou commercial et souhaitez structurer votre prospection B2B.</li>
-                    <li>Vous voulez passer de la prospection subie à une méthode prédictive et régulière.</li>
-                    <li>Vous souhaitez maîtriser l'approche multicanale (Phoning, Emailing, LinkedIn).</li>
-                    <li>Vous cherchez des outils pragmatiques et un plan d'action directement opérationnel.</li>
+            <!-- Diagnostic / Target -->
+            <section class="card-box warning-card">
+                <h3>⚠️ CETTE FORMATION EST FAITE POUR VOUS SI :</h3>
+                <ul class="custom-list cross">
+                    <li>Vous n'avez pas de méthode de prospection structurée</li>
+                    <li>Vous prospectez uniquement quand votre pipeline est vide (et c'est trop tard)</li>
+                    <li>Vous ne savez pas combien de prospects contacter pour atteindre vos objectifs</li>
+                    <li>Vous abandonnez après le premier "non"</li>
+                    <li>Vous confondez prospection et spam</li>
+                    <li>Vous n'avez pas de visibilité sur vos 3-6 prochains mois</li>
                 </ul>
+                <p style="margin-top: 1rem; font-weight: 600; font-size: 0.95rem; color: #0f172a;">
+                    👉 Si vous avez coché au moins 3 cases, cette formation va transformer votre approche commerciale.
+                </p>
             </section>
 
-            <section style="margin-top: 2.5rem;">
-                <h2 class="section-label">Programme de la formation</h2>
+            <!-- Objectives & Results -->
+            <section>
+                <h2 class="section-label">🎯 Objectifs : Ce que vous allez obtenir</h2>
+                <div class="card-box success-card">
+                    <ul class="custom-list check">
+                        <li>Un plan d'actions commercial sur 90 jours avec objectifs chiffrés et actions quotidiennes</li>
+                        <li>Votre profil client idéal (ICP) défini précisément pour ne plus perdre de temps</li>
+                        <li>Une base de 100 prospects qualifiés prêts à être contactés</li>
+                        <li>Des scripts et templates prêts à l'emploi (emails, appels, LinkedIn)</li>
+                        <li>Une routine de prospection quotidienne de 90 minutes</li>
+                        <li>Un tableau de bord avec 5 KPIs essentiels pour piloter votre activité</li>
+                        <li>Une approche multicanal synchronisée (email + téléphone + LinkedIn + courrier)</li>
+                        <li>La capacité de prévoir et piloter vos résultats commerciaux au lieu de les subir</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-label">📈 Résultats attendus</h2>
+                <div class="timeline-grid">
+                    <div class="timeline-item">
+                        <h4>Après 30 jours</h4>
+                        <p style="font-size: 0.88rem;">• Plan 90 jours défini<br>• 120-180 prospects contactés<br>• Premiers RDV qualifiés<br>• Routine en place</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Après 60 jours</h4>
+                        <p style="font-size: 0.88rem;">• 240-360 prospects contactés<br>• 15-20 RDV obtenus<br>• Premières propositions envoyées<br>• Pilotage hebdomadaire</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Après 90 jours</h4>
+                        <p style="font-size: 0.88rem;">• 360-540 prospects contactés<br>• <strong>5 à 10 nouveaux clients signés</strong><br>• Pipeline prévisible<br>• Maîtrise commerciale</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Act Now -->
+            <section class="card-box">
+                <h3 style="color: var(--brand-orange);">🔥 POURQUOI AGIR MAINTENANT ?</h3>
+                <p class="desc-text" style="font-size: 0.95rem; margin-bottom: 0.75rem;">
+                    Chaque jour sans prospection structurée, c'est des opportunités perdues au profit de vos concurrents, un pipeline qui se vide et du stress inutile.
+                </p>
+                <div style="background: #f1f5f9; padding: 1rem; border-radius: 6px; font-size: 0.95rem;">
+                    <strong>Dans 90 jours, vous aurez :</strong>
+                    <ul style="margin-left: 1.2rem; margin-top: 0.5rem;">
+                        <li><strong>Option A :</strong> Continué comme avant (et obtenu les mêmes résultats décevants)</li>
+                        <li><strong>Option B :</strong> Appliqué cette méthode (et signé 5 à 10 nouveaux clients)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section>
+                <h2 class="section-label">💬 CE QU'ILS DISENT</h2>
+                <div class="testimonial-item">
+                    "Avant, je prospectais dans l'urgence et sans méthode. Après le Module 1, j'ai ENFIN un plan clair sur 90 jours. J'ai bloqué mes créneaux et en 3 semaines j'ai déjà 8 RDV qualifiés."
+                    <div class="testimonial-author">— Marc, Dirigeant PME industrielle (35 pers.)</div>
+                </div>
+                <div class="testimonial-item">
+                    "Le calculateur d'entonnoir m'a ouvert les yeux. Je ne réalisais pas qu'il fallait contacter autant de prospects. Maintenant je comprends pourquoi je stagnais : je ne prospectais pas assez !"
+                    <div class="testimonial-author">— Sophie, Directrice commerciale (12 pers.)</div>
+                </div>
+                <div class="testimonial-item">
+                    "Formation ultra concrète. Pas de blabla. Des outils prêts à l'emploi. J'ai monté ma base de 100 prospects en 2 jours et démarré mes actions dans la foulée. Exactement ce qu'il me fallait."
+                    <div class="testimonial-author">— Thomas, Consultant indépendant</div>
+                </div>
+            </section>
+
+            <!-- Program -->
+            <section>
+                <h2 class="section-label">📚 Programme détaillé de la formation</h2>
                 <div class="modules-list">
-                    
                     <div class="module-item">
                         <h4>MODULE 1 : Poser les fondations de sa prospection</h4>
                         <ul class="lessons-list">
@@ -309,7 +533,6 @@
                             <li>1.3 Définir vos objectifs commerciaux SMART</li>
                         </ul>
                     </div>
-
                     <div class="module-item">
                         <h4>MODULE 2 : Identifier et qualifier vos prospects idéaux</h4>
                         <ul class="lessons-list">
@@ -319,7 +542,6 @@
                             <li>2.4 Constituer votre base de données prospects</li>
                         </ul>
                     </div>
-
                     <div class="module-item">
                         <h4>MODULE 3 : Les canaux de prospection efficaces</h4>
                         <ul class="lessons-list">
@@ -329,7 +551,6 @@
                             <li>3.4 L'approche multicanal synchronisée</li>
                         </ul>
                     </div>
-
                     <div class="module-item">
                         <h4>MODULE 4 : Prendre contact et obtenir des rendez-vous</h4>
                         <ul class="lessons-list">
@@ -339,7 +560,6 @@
                             <li>4.4 Relancer sans être "relou" : la vraie méthode</li>
                         </ul>
                     </div>
-
                     <div class="module-item">
                         <h4>MODULE 5 : Organiser et suivre sa prospection</h4>
                         <ul class="lessons-list">
@@ -349,8 +569,7 @@
                             <li>5.4 Analyser et optimiser vos résultats chaque semaine</li>
                         </ul>
                     </div>
-
-                    <div class="module-item bonus-item">
+                    <div class="module-item" style="border-left: 4px solid var(--brand-orange);">
                         <h4>BONUS : Cas pratiques et plan d'actions</h4>
                         <ul class="lessons-list">
                             <li>Bonus 1 : Cas pratique - PME industrielle</li>
@@ -358,21 +577,102 @@
                             <li>BONUS 3 : Les 10 pièges à éviter absolument</li>
                         </ul>
                     </div>
-
                 </div>
             </section>
+
+            <!-- ROI Section -->
+            <section class="card-box" style="margin-top: 2.5rem;">
+                <h3 style="color: var(--brand-orange);">💡 POURQUOI CET INVESTISSEMENT ?</h3>
+                <p class="desc-text" style="font-size: 0.95rem;">
+                    <strong>Un seul nouveau client signé grâce à cette méthode = formation rentabilisée.</strong>
+                </p>
+                <ul class="custom-list check" style="font-size: 0.9rem;">
+                    <li><strong>Panier moyen 5 000€ :</strong> 1 client = ROI de 500%</li>
+                    <li><strong>Panier moyen 10 000€ :</strong> 1 client = ROI de 1000%</li>
+                    <li><strong>Panier moyen 50 000€ :</strong> 1 client = ROI de 5000%</li>
+                </ul>
+                <div style="border-top: 1px solid var(--card-border); margin-top: 1rem; padding-top: 1rem; font-size: 0.88rem; color: var(--text-muted);">
+                    <strong>Comparé à :</strong> Un commercial junior (35k-60k€/an), une agence (2k-5k€/mois) ou un consultant (1.5k-3k€/jour) : cette formation est un investissement unique accessible à vie.
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section>
+                <h2 class="section-label">❓ QUESTIONS FRÉQUENTES</h2>
+                <div class="faq-item">
+                    <div class="faq-question">Q : J'ai déjà essayé de prospecter, ça n'a pas marché. Pourquoi ça marcherait cette fois ?</div>
+                    <div class="faq-answer">R : Parce que vous n'aviez probablement pas de MÉTHODE. Vous avez contacté quelques prospects au hasard et essuyé des refus. Cette formation vous donne un SYSTÈME complet : ciblage précis, volumes calculés, approche multicanal, relances systématiques et KPIs de suivi.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q : Je n'ai pas le temps de prospecter 90 minutes par jour.</div>
+                    <div class="faq-answer">R : C'est ce que disent 87% des dirigeants. 90 minutes par jour, c'est 7h30 par semaine pour assurer la pérennité de votre entreprise et éviter de perdre 20% de vos clients chaque année.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q : Est-ce que ça marche dans MON secteur ?</div>
+                    <div class="faq-answer">R : Cette méthode fonctionne pour tout secteur B2B avec un cycle de vente de 1 à 6 mois (conseil, industrie, services IT, formation...).</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q : Je ne suis pas commercial de formation, ça va être trop compliqué ?</div>
+                    <div class="faq-answer">R : Au contraire, la formation est conçue pour les non-commerciaux. Tout est expliqué étape par étape avec des exemples et des templates prêts à l'emploi.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Q : La formation est-elle accessible à vie ?</div>
+                    <div class="faq-answer">R : Oui, accès illimité à vie avec toutes les mises à jour futures incluses gratuitement.</div>
+                </div>
+            </section>
+
+            <!-- Trainer -->
+            <section>
+                <h2 class="section-label">👤 Contenu proposé par Virginie</h2>
+                <div class="trainer-box">
+                    <div class="trainer-header">
+                        <div class="trainer-avatar">V</div>
+                        <div class="trainer-title">
+                            <h3>Virginie Anselot</h3>
+                            <p>Experte en développement commercial & management stratégique</p>
+                        </div>
+                    </div>
+                    <p class="desc-text" style="font-size: 0.92rem;">
+                        Spécialisée en prospection active, fidélisation client et pilotage d’équipes pour assurer une croissance mesurable et durable.
+                    </p>
+                    <div class="exp-item">
+                        <strong>Responsable Commerciale & Grands Comptes (11 ans)</strong>
+                        +200 clients grands comptes | +35% CA | Supervision de 4 commerciaux
+                    </div>
+                    <div class="exp-item">
+                        <strong>Consultante Commerciale & Marketing (3 ans)</strong>
+                        55 sessions de formation | Stratégie commerciale B2B
+                    </div>
+                    <div class="exp-item">
+                        <strong>Directrice de Réseau Magasins (8 ans)</strong>
+                        Gestion de 18 magasins | 80 employés | CA 10M€
+                    </div>
+                </div>
+            </section>
+
         </main>
 
+        <!-- Sticky Sidebar -->
         <aside>
             <div class="side-card">
                 <div class="card-img-container">
                     <img src="badge-prospection.png" alt="La Prospection B2B CapCo">
                 </div>
-                <a href="https://capco.teachizy.fr/" class="btn-cta-green" target="_blank">Accéder</a>
+                
+                <div class="price-box">
+                    <div class="price-amount">997 € <span style="font-size: 1rem; font-weight: 500;">TTC</span></div>
+                    <div class="price-sub">Accès illimité à vie</div>
+                </div>
+
+                <a href="https://capco.teachizy.fr/" class="btn-cta-green" target="_blank">Rejoindre la formation</a>
+
                 <ul class="meta-list">
-                    <li>📱 Accessible sur PC, Mac et mobile</li>
-                    <li>📚 22 leçons</li>
+                    <li>🎬 22 vidéos professionnelles (8h30)</li>
+                    <li>📄 21 PDF & templates prêts à l'emploi</li>
+                    <li>📊 15 exercices interactifs</li>
+                    <li>📱 Accessible sur PC, Mac et Mobile</li>
                     <li>🎓 Certificat de réussite</li>
+                    <li>✉️ Contact : contact@capco-formation.fr</li>
                 </ul>
             </div>
         </aside>
