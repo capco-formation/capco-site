@@ -9,15 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-page: #ffffff;          /* Fond blanc épuré */
-            --bg-card: #f8fafc;          /* Fond de carte très léger */
-            --text-main: #191946;        /* Bleu nuit CapCo pour le texte principal */
-            --text-muted: #475569;       /* Gris foncé pour la lisibilité */
+            --bg-page: #ffffff;          
+            --bg-card: #f8fafc;          
+            --text-main: #191946;        /* Texte principal en Bleu nuit CapCo */
+            --text-muted: #2b2c5a;       /* Bleu chouette pour le texte secondaire */
             --brand-blue: #191946;       /* Bleu nuit CapCo */
             --brand-orange: #FFA500;     /* Orange accent CapCo */
-            --btn-action: #FFA500;       /* Bouton CTA Orange */
+            --btn-action: #FFA500;       
             --btn-action-hover: #e09200;
-            --card-border: #e2e8f0;      /* Border discrète */
+            --card-border: #cbd5e1;      
             --danger-red: #ef4444;
         }
 
@@ -35,7 +35,7 @@
         }
 
         header {
-            background: #191946;         /* Bleu nuit pour le header */
+            background: var(--brand-blue);
             border-bottom: 1px solid var(--card-border);
             padding: 0.8rem 2rem;
             position: sticky;
@@ -126,7 +126,7 @@
             padding: 1.5rem 1.8rem;
             margin-top: 1.5rem;
             border: 1px solid var(--card-border);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            box-shadow: 0 2px 8px rgba(25, 25, 70, 0.05);
         }
 
         .card-box.warning-card {
@@ -363,7 +363,7 @@
             background: #ffffff;
             border-radius: 12px;
             border: 1px solid var(--card-border);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 24px rgba(25, 25, 70, 0.08);
             padding: 1.25rem;
             position: sticky;
             top: 5rem;
@@ -432,6 +432,73 @@
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+
+        /* Pied de page (Footer) */
+        footer {
+            background-color: var(--brand-blue);
+            color: #ffffff;
+            padding: 3rem 1.5rem 1.5rem;
+            margin-top: 4rem;
+            border-top: 3px solid var(--brand-orange);
+        }
+
+        .footer-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--brand-orange);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col p, .footer-col li {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--brand-orange);
+        }
+
+        .footer-bottom {
+            max-width: 1240px;
+            margin: 0 auto;
+            border-top: 1px solid #2b2c5a;
+            padding-top: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* Section Mentions Légales */
+        .legal-content {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .legal-content h4 {
+            color: var(--brand-blue);
+            margin-top: 1rem;
+            margin-bottom: 0.3rem;
         }
 
         @media (max-width: 860px) {
@@ -705,6 +772,26 @@
                 </div>
             </section>
 
+            <!-- Mentions Légales Section -->
+            <section id="mentions-legales" style="margin-top: 3rem;">
+                <h2 class="section-label">⚖️ Mentions Légales</h2>
+                <div class="card-box legal-content">
+                    <h4>1. Éditeur du site</h4>
+                    <p>Le site <strong>CapCo. - L'accélérateur commercial TPE/PME</strong> est édité par CapCo Conseil & Formations commerciales.<br>
+                    Directrice de la publication : Virginie Anselot.<br>
+                    Contact : contact@capco-formation.fr</p>
+
+                    <h4>2. Hébergement</h4>
+                    <p>Le site est hébergé via GitHub Pages (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis) et les modules de formation sont hébergés sur la plateforme Teachizy.</p>
+
+                    <h4>3. Propriété intellectuelle</h4>
+                    <p>L'ensemble des contenus (textes, logos, images, éléments graphiques, vidéos) présentés sur ce site est la propriété exclusive de CapCo Conseil & Formations commerciales, conformément à la charte graphique officielle[cite: 1]. Toute reproduction ou représentation totale ou partielle sans autorisation expresse est interdite[cite: 1].</p>
+
+                    <h4>4. Protection des données personnelles</h4>
+                    <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant. Pour exercer ce droit, contactez-nous par email à contact@capco-formation.fr.</p>
+                </div>
+            </section>
+
         </main>
 
         <!-- Sticky Sidebar -->
@@ -732,6 +819,33 @@
             </div>
         </aside>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>CapCo.</h4>
+                <p>L'accélérateur commercial TPE/PME[cite: 1].</p>
+                <p>Des méthodes concrètes pour structurer votre prospection, développer votre chiffre d'affaires et sécuriser vos ventes BtoB.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation rapide</h4>
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="https://capco.teachizy.fr/" target="_blank">Espace membre</a></li>
+                    <li><a href="#mentions-legales">Mentions Légales</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>📧 Email : contact@capco-formation.fr</p>
+                <p>📍 Conseil & Formations Commerciales TPE/PME[cite: 1]</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CapCo. Tous droits réservés[cite: 1]. | Développé pour la performance commerciale B2B.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
